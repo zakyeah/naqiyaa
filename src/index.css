@@ -1,27 +1,52 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+/* Pengaturan dasar semua elemen */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   scroll-behavior: smooth;
-  
 }
 
+/* Pengaturan ukuran halaman */
+html,
+body,
+#root {
+  width: 100%;
+  min-height: 100%;
+}
+
+/* Pengaturan background */
 body {
   margin: 0;
+  width: 100%;
+  min-height: 100vh;
+  min-height: 100svh;
+
   background-image: url('./assets/bg.jpg');
-  background-size: cover; 
-  background-repeat: no-repeat; 
-  background-attachment: fixed; 
-  background-position: center; 
-  width: 100dvw;
-  /* overflow: hidden; */
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+
+  overflow-x: hidden;
 }
+
+/* Pengaturan gambar dan SVG */
+img,
 svg {
   max-width: 100%;
   max-height: 100%;
 }
 
+/* Responsif untuk HP dan tablet */
+@media (max-width: 768px) {
+  body {
+    background-attachment: scroll;
+    background-size: cover;
+    background-position: center;
+  }
+}

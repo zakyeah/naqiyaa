@@ -1,13 +1,14 @@
-import React, { useState } from 'react'
-import { motion } from 'framer-motion'
+
+import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
 function Home() {
-    const [visibleCount, setVisibleCount] = useState(1)
-    const navigate = useNavigate()
-    const sentences = [
+  const [visibleCount, setVisibleCount] = useState(1)
+  const navigate = useNavigate()
+
+  const sentences = [
     "Hi SAYANG",
-    "Aku punya sesuatu buat kamu:)"
+    "Aku punya sesuatu buat kamu :)"
   ]
 
   const handleClick = () => {
@@ -17,24 +18,32 @@ function Home() {
       navigate('/pictures')
     }
   }
+
   return (
-    <div 
-      className="flex flex-col min-h-screen  cursor-pointer w-full items-center justify-center over-flow-clip" 
+    <div
       onClick={handleClick}
+      style={{
+        minHeight: '100vh',
+        minHeight: '100svh',
+        width: '100%',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        flexDirection: 'column',
+        cursor: 'pointer',
+        position: 'relative',
+        zIndex: 10,
+        color: '#2563EB',
+        fontSize: 'clamp(20px, 5vw, 35px)',
+        fontWeight: 'bold',
+        textAlign: 'center',
+        padding: '20px',
+        gap: '10px'
+      }}
     >
-      <div className="w-[90%] max-w-[400px] px-8">
-        {sentences.slice(0, visibleCount).map((sentence, index) => (
-          <motion.p
-            key={index}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 1.2 }}
-            className="text-4xl font-bold text-customBlue drop-shadow-lg"
-          >
-            {sentence}
-          </motion.p>
-        ))}
-      </div>
+      {sentences.slice(0, visibleCount).map((sentence, index) => (
+        <p key={index}>{sentence}</p>
+      ))}
     </div>
   )
 }

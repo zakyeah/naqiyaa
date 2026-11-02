@@ -1,15 +1,16 @@
+
 import React from "react";
 import { motion } from "framer-motion";
 
 const SectionWrapper = ({ children }) => {
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center overflow-clip">
-      <div className="w-[450px] h-screen flex items-center justify-center overflow-clip">
+    <div className="min-h-screen min-h-[100svh] w-full flex flex-col items-center justify-center overflow-hidden px-4">
+      <div className="w-full max-w-[450px] min-h-screen min-h-[100svh] flex items-center justify-center overflow-hidden">
         <motion.div
-          className="w-[300px] h-[300px] relative mx-auto"
+          className="w-[min(300px,85vw)] aspect-square relative mx-auto"
           initial={{ opacity: 0, visibility: "hidden" }}
           animate={{ opacity: 1, visibility: "visible" }}
-          transition={{duration: 1.2}}
+          transition={{ duration: 1.2 }}
         >
           {children}
         </motion.div>

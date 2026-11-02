@@ -1,6 +1,8 @@
-/* shoutout to Lena Stanley for the present styling https://codepen.io/lenasta92579651/pen/oNWgeoq 
- and Cyril for the ticket https://codepen.io/ArnHack/pen/ygQOYd
- */
+
+/* Present Styling
+   Credit: Lena Stanley
+   https://codepen.io/lenasta92579651/pen/oNWgeoq
+*/
 
 .birthday-gift {
   position: relative;
@@ -8,6 +10,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  width: 100%;
   height: 100%;
 }
 
@@ -25,39 +28,40 @@ input#click {
   display: none;
 }
 
-/* box */
+/* Gift box */
 .gift {
   position: relative;
-  width: 300px;
+  width: min(300px, 80vw);
   height: 200px;
   background-color: #e9c46a;
   cursor: pointer;
 }
 
-/* ribbon box */
+/* Ribbon box */
 .gift:before {
   content: "";
   position: absolute;
   width: 40px;
   height: 200px;
   background-color: #e76f51;
-  left: 124px;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
-/* shadow */
+/* Shadow */
 .gift:after {
   content: "";
   position: absolute;
   box-shadow: inset 0 10px rgba(0, 0, 0, 0.3);
-  width: 300px;
+  width: 100%;
   height: 100px;
 }
 
-/* box cover */
+/* Gift cover */
 .gift-top {
   position: absolute;
   background-color: #e9c46a;
-  width: 340px;
+  width: calc(100% + 40px);
   height: 75px;
   top: -75px;
   left: -20px;
@@ -65,14 +69,15 @@ input#click {
   transition: .3s;
 }
 
-/* ribbon cover */
+/* Ribbon cover */
 .gift-top:before {
   content: "";
   position: absolute;
   width: 40px;
   height: 75px;
   background-color: #e76f51;
-  left: 138px;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .gift-top:after {
@@ -82,10 +87,10 @@ input#click {
   height: 0;
   border-bottom: 60px solid #e76f51;
   border-top: 60px solid #e76f51;
-  border-left: 0px solid transparent;
+  border-left: 0 solid transparent;
   border-right: 60px solid transparent;
   transform: rotate(-90deg);
-  left: 130px;
+  left: calc(50% - 30px);
   top: -90px;
 }
 
@@ -93,6 +98,7 @@ input#click {
   transform: rotate(-110deg) scaleX(0.85);
 }
 
+/* Tickets */
 #raffle-red,
 .entry div {
   position: absolute;
@@ -127,12 +133,14 @@ input#click {
   height: 100%;
 }
 
-/* ticket base */
+/* Ticket base */
 #raffle-red div {
-  background-image: radial-gradient(circle at top left, transparent 17px, #dc143c 17px),
+  background-image:
+    radial-gradient(circle at top left, transparent 17px, #dc143c 17px),
     radial-gradient(circle at top right, transparent 17px, #dc143c 17px),
     radial-gradient(circle at bottom left, transparent 17px, #dc143c 17px),
     radial-gradient(circle at bottom right, transparent 17px, #dc143c 17px);
+
   box-shadow: 0 38px 14px -35px rgba(0, 0, 0, 0.3);
   background-size: 50% 50%;
   background-position: top left, top right, bottom left, bottom right;
@@ -148,7 +156,7 @@ input#click {
   transition: 0.5s;
 }
 
-/* ticket text */
+/* Ticket text */
 .ticket-text {
   display: block;
   font-family: "HelveticaNeue-CondensedBold", "Arial Narrow", Impact, "Roboto", sans-serif;
@@ -162,7 +170,7 @@ input#click {
   white-space: pre-line;
 }
 
-/* raffles */
+/* Raffle decoration */
 #raffle-red div:before {
   width: 183px;
   height: 45px;
@@ -172,9 +180,13 @@ input#click {
   background-size: 7px 7px;
   background-repeat: repeat-y;
   background-position: 0 0, 0 0, 100% 0, 100% 0;
-  background-image: linear-gradient(45deg, transparent 75%, #dc143c 75%),
-    linear-gradient(135deg, transparent 75%, #dc143c 75%), linear-gradient(-45deg, transparent 75%, #dc143c 75%),
+
+  background-image:
+    linear-gradient(45deg, transparent 75%, #dc143c 75%),
+    linear-gradient(135deg, transparent 75%, #dc143c 75%),
+    linear-gradient(-45deg, transparent 75%, #dc143c 75%),
     linear-gradient(-135deg, transparent 75%, #dc143c 75%);
+
   line-height: 1.9;
   font-size: 30px;
   text-align: left;
@@ -182,7 +194,7 @@ input#click {
   position: absolute;
 }
 
-/* orange box */
+/* Orange box */
 #raffle-red div:after {
   width: 70px;
   padding-top: 120px;
@@ -196,4 +208,52 @@ input#click {
   line-height: 1;
   content: "";
   position: absolute;
+}
+
+/* =================================
+   RESPONSIVE TABLET
+================================= */
+
+@media screen and (max-width: 768px) {
+  .birthday-gift {
+    transform: scale(0.9);
+  }
+}
+
+/* =================================
+   RESPONSIVE MOBILE
+================================= */
+
+@media screen and (max-width: 600px) {
+  .birthday-gift {
+    transform: scale(0.85);
+  }
+
+  .ticket-text {
+    font-size: 18px;
+  }
+}
+
+/* =================================
+   SMALL MOBILE
+================================= */
+
+@media screen and (max-width: 380px) {
+  .birthday-gift {
+    transform: scale(0.75);
+  }
+
+  .ticket-text {
+    font-size: 17px;
+  }
+}
+
+/* =================================
+   LANDSCAPE MOBILE
+================================= */
+
+@media screen and (max-height: 500px) and (orientation: landscape) {
+  .birthday-gift {
+    transform: scale(0.7);
+  }
 }
